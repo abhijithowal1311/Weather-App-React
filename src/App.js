@@ -35,10 +35,8 @@ function App() {
     addUserData(dispatch)
   }, []);
 
-  console.log("state: ", state);
   return (
     <div className="App">
-      <Header />
       <Sidebar />
       <MainRouter />
     </div>

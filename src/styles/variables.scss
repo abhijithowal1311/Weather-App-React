@@ -1,12 +1,25 @@
 $theme-colors: (
   "primary": #6579f7,
-  "danger": #ff4136
+  "danger": #ff4136,
+  "primaryNew": #2e3e50
 );
 
 
-    .text-white {
-        color: white !important;
-    }
+.text-white {
+color: white !important;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.font-size-14 {
+    font-size: 12px;
+}
 
 
 @import "node_modules/bootstrap/scss/bootstrap";

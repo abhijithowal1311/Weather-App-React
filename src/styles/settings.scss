@@ -3,6 +3,8 @@
     width: 100%;
     padding: 2rem;
     height: 100vh !important;
+    display: flex;
+    flex-direction: column;
     .user__form {
         margin-top: 1rem;
         // display: flex;

@@ -3,6 +3,7 @@ import { ACTION_TYPES } from "../context/types";
 const weatherUtils = {
   getTemperatueType,
   addWeatherInfoToStore,
+  getWeatherIconUrl
 };
 
 function getTemperatueType(unitType) {
@@ -26,6 +27,10 @@ function addWeatherInfoToStore(weatherInfo, dispatch) {
     type: ACTION_TYPES.ADD_WEATHER_DATA,
     payload: weatherInfo,
   });
+}
+
+function getWeatherIconUrl(item) {
+  return `https://openweathermap.org/img/wn/${item.icon}.png`
 }
 
 export default weatherUtils;
