@@ -5,11 +5,11 @@ import GraphFilter from './GraphFilter'
 
 export default function WeatherGraph() {
     const [state,dispatch] = useContext(WeatherContext);
-    
+    console.log('c',state.weatherData)
     return (
         <div className="graph">
             <GraphFilter />
-            <GraphContent />
+            {state.weatherData && state.weatherData.lat && <GraphContent data={state.weatherData}/> }
         </div>
     )
 }

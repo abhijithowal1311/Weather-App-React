@@ -2,5 +2,15 @@
     background: #eff7f5;
     margin: 0.25rem;
     width: 100%;
-    height: 350px;
+    height: 450px;
+
+    .graph__container {
+        max-height: 375px;
+    }
+
+    .graph__filter {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 1.5rem;
+    }
 }

@@ -5,7 +5,7 @@ import weatherUtils from "../../../utils/weatherUtilities";
 
 export default function DailyWeatherCard({ weather = {} }) {
   return (
-    <Card className="d-flex px-3 py-0 daily__weather__card">
+    <Card className="d-flex px-4 py-1 daily__weather__card">
       <CardBody className="daily__weather__item">
         <img src={weatherUtils.getWeatherIconUrl(weather.weather[0])} />
         <div className="text-bold font-size-14 text-center">
