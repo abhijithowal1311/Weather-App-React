@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.scss";
+import { useContext, useEffect, useMemo } from "react";
+import { WeatherContext } from "./context";
+import requestLocationAccess from "./helpers/location";
+import Home from "./components/pages/Home";
+import MainRouter from "./routing/MainRouter";
+import Sidebar from "./components/ui/Sidebar";
+import Header from "./components/ui/Header";
 
 function App() {
+  const [state, dispatch] = useContext(WeatherContext);
+
+  useEffect(() => {
+    requestLocationAccess(dispatch);
+  }, []);
+
+  console.log("state: ", state);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Sidebar />
+      <MainRouter />
     </div>
   );
 }
