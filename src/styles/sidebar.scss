@@ -1,12 +1,31 @@
 .sidebar {
     height: 100vh !important;
+    // $sidebar-bg-color: #6579F7;
+    $sidebar-bg-color: #6579f7; /* Old browsers */
+    $sidebar-bg-color: -moz-linear-gradient(top,  #6579f7 0%, #207cca 0%, #758bef 100%); /* FF3.6-15 */
+    $sidebar-bg-color: -webkit-linear-gradient(top,  #6579f7 0%,#207cca 0%,#758bef 100%); /* Chrome10-25,Safari5.1-6 */
+    $sidebar-bg-color: linear-gradient(to bottom,  #6579f7 0%,#207cca 0%,#758bef 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    
+    $sidebar-color: white;
+    @import '~react-pro-sidebar/dist/scss/styles.scss';
+
+    .menu__icon {
+        display: none;
+    }
+
+    .pro-sidebar-layout {
+        height: 100vh !important;
+    }
 }
 
-// $sidebar-bg-color: #6579F7;
-$sidebar-bg-color: #6579f7; /* Old browsers */
-$sidebar-bg-color: -moz-linear-gradient(top,  #6579f7 0%, #207cca 0%, #758bef 100%); /* FF3.6-15 */
-$sidebar-bg-color: -webkit-linear-gradient(top,  #6579f7 0%,#207cca 0%,#758bef 100%); /* Chrome10-25,Safari5.1-6 */
-$sidebar-bg-color: linear-gradient(to bottom,  #6579f7 0%,#207cca 0%,#758bef 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-
-$sidebar-color: white;
-@import '~react-pro-sidebar/dist/scss/styles.scss';
+@media screen and (max-width: 768px ){
+    .sidebar {
+        height: fit-content !important;
+        .menu__icon {
+            display: block !important;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+    }
+}

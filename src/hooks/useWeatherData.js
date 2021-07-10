@@ -19,6 +19,7 @@ function useWeatherData(location, unitType, dispatch) {
     }
     location && location.latitude && getWeatherData();
   }, [location, dispatch, unitType]);
+
   return weatherData;
 }
 

@@ -1,0 +1,14 @@
+.weather__card {
+    color: #111;
+    margin: 1rem;
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+
+    .card__content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+}

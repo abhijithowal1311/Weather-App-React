@@ -19,6 +19,7 @@ const initialState = {
   error: null,
   appTheme: "light",
   unauthorized: false,
+  place: "",
   unitType: "metric"
 };
 

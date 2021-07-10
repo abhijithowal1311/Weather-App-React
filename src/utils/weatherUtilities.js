@@ -1,8 +1,8 @@
 import { ACTION_TYPES } from "../context/types";
 
 const weatherUtils = {
-    getTemperatueType,
-    addWeatherInfoToStore
+  getTemperatueType,
+  addWeatherInfoToStore,
 };
 
 function getTemperatueType(unitType) {
@@ -17,15 +17,15 @@ function getTemperatueType(unitType) {
 }
 
 function addWeatherInfoToStore(weatherInfo, dispatch) {
-    if (weatherInfo.unauthorized) {
-      dispatch({
-        type: ACTION_TYPES.API_UNAUTHORIZED,
-      });
-    }
+  if (weatherInfo.unauthorized) {
     dispatch({
-      type: ACTION_TYPES.ADD_WEATHER_DATA,
-      payload: weatherInfo,
+      type: ACTION_TYPES.API_UNAUTHORIZED,
     });
   }
+  dispatch({
+    type: ACTION_TYPES.ADD_WEATHER_DATA,
+    payload: weatherInfo,
+  });
+}
 
 export default weatherUtils;

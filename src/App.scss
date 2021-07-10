@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  // text-align: center;
   display: flex;
 }
 
@@ -38,4 +38,11 @@
   }
 }
 
-$sidebar-bg-color: #6579F7 !default;
+@media screen and (max-width:768px) {
+  .App {
+    flex-direction: column
+  }
+}
+
+@import "./styles/utils.scss";
+@import "./styles/variables.scss"

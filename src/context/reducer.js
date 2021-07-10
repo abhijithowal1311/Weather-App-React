@@ -20,6 +20,17 @@ export const rootReducer = (state, action) => {
         locationEnabled: false,
         locatonBlocked: true,
       };
+    case "ADD_USER_PLACE":
+      return {
+        ...state,
+        place: action.payload,
+      };
+    case "ADD_USER_DATA":
+      console.log("we are here 2 action payload",action.payload)
+      return {
+        ...state,
+        user: {...action.payload},
+      };
     case "COMPLETE":
       return {
         loading: false,
