@@ -28,7 +28,7 @@ export default function WeatherCard({ weather, unitText, place }) {
             <Progress color="info" className="progress__bar" value={weather.current && weather.current.humidity} />
             <div className="d-flex align-items-center justify-content-between mt-3">
                 <div className="weather_card_label">Wind Speed</div>
-                <div className="weather_card_value">{weather.current && weather.current.wind_speed*18/5} km/h</div>
+                <div className="weather_card_value">{weather.current && parseFloat(weather.current.wind_speed*18/5).toFixed(2)} km/h</div>
             </div>
         </div>
       </CardBody>

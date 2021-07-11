@@ -1,11 +1,12 @@
 import React from 'react'
-import { Doughnut, Line } from 'react-chartjs-2';
+import { Doughnut, Line, Bar, Bubble } from 'react-chartjs-2';
+import { WEATHER_PARAMETER_MAPPING } from '../../constants';
 
-export default function GraphContent({data}) {
+export default function GraphContent({data, type, param}) {
     console.log('graph data',data)
     let options =  {labels: data.labels,
     datasets: [{
-        label: "temperature",
+        label: WEATHER_PARAMETER_MAPPING[param],
         data: data.data,
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -23,12 +24,26 @@ export default function GraphContent({data}) {
             'rgba(153, 102, 255, 1)',
             'rgba(255, 159, 64, 1)'
         ],
-        borderWidth: 1
+        borderWidth: 1,
     }]}
 
     return (
-        <div className="d-flex w-100 justify-content-center align-items-center p-5">
-            { options && <Line data={options} className="d-flex w-100 graph__container bg-white"/> }
+        <div className="d-flex w-100 justify-content-center align-items-center p-lg-5 p-2 pt-lg-5 pt-4">
+            {
+                
+            }
+            { options && GetGraphType(type, options) }
         </div>
     )
+}
+
+function GetGraphType(type, options) {
+    switch(type) {
+        case "line":
+            return <Line data={options} className="d-flex w-100 graph__container bg-white"/>
+        case "bar":
+            return <Bar  data={options} className="d-flex w-100 graph__container bg-white"/>
+        default:
+            return <Bubble data={options} className="d-flex w-100 graph__container bg-white"/>
+    }
 }

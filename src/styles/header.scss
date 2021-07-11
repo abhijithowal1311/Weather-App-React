@@ -1,5 +1,5 @@
 .header {
-    padding: 1.5rem;
+    padding: 0.5rem 1.5rem;
     // background: rgb(219, 250, 250);
     display: flex;
     justify-content: space-between;
@@ -38,4 +38,15 @@
 .user_info__options {
     margin-right: 0.5rem;
     padding: 2rem !important;
+}
+
+@media screen and (max-width: 990px) {
+    .header {
+    .header__searchbar { 
+        width: 100% !important;
+    }
+    .user-option {
+        display: none !important;
+    }
+    }
 }

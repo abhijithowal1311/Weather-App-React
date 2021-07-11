@@ -1,6 +1,7 @@
 .App {
   // text-align: center;
   display: flex;
+  font-family: 'Roboto', sans-serif;
 }
 
 .App-logo {
@@ -50,3 +51,7 @@
 @import "./styles/daily-weather.scss";
 @import "./styles/graph.scss";
 @import "./styles/weather-card.scss";
+@import "./styles/saved-places.scss";
+@import "./styles/weather-info.scss";
+
+

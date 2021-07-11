@@ -7,6 +7,8 @@ import { WeatherContextProvider } from "./context";
 import { BrowserRouter } from "react-router-dom";
 import "./App.scss";
 import 'react-toastify/dist/ReactToastify.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 ReactDOM.render(
   <React.StrictMode>

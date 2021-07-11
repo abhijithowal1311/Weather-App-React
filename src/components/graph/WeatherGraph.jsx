@@ -11,6 +11,9 @@ export default function WeatherGraph() {
   const [graphLabels, setgraphLabels] = useState([]);
   const [graphFilters, setgraphFilters] = useState([]);
   const [currentFilter, setcurrentFilter] = useState("");
+  const [currentGraph, setcurrentGraph] = useState("line")
+  const [graphParams, setgraphParams] = useState([])
+  const [currentParam, setcurrentParam] = useState("temp")
 
   useEffect(() => {
     console.log("weather data", state.weatherData);
@@ -24,11 +27,12 @@ export default function WeatherGraph() {
   }
 
   useEffect(() => {
+    currentFilter && setgraphParams(utils.getGraphParams(state.weatherData[currentFilter]))
     currentFilter &&  setgraphData({
       labels: utils.getGraphLabels(currentFilter, state.weatherData),
-      data: utils.getGraphData(currentFilter, state.weatherData),
+      data: utils.getGraphData(currentFilter, state.weatherData, currentParam),
     });
-  }, [currentFilter]);
+  }, [currentFilter, currentParam]);
 
   function updateFilter(filter) {
       setcurrentFilter(WEATHER_TYPE_LABELS_REVERSE[filter])
@@ -36,9 +40,9 @@ export default function WeatherGraph() {
 
   return (
     <div className="graph">
-      <GraphFilter filters={graphFilters} currentFilter={currentFilter} updateFilter={updateFilter}/>
+      <GraphFilter graphParams={graphParams} changeParams={setcurrentParam} filters={graphFilters} currentGraph={currentGraph} changeType={setcurrentGraph} currentFilter={currentFilter} updateFilter={updateFilter}/>
       {state.weatherData && state.weatherData.lat && graphData && graphData.data && (
-        <GraphContent data={graphData} />
+        <GraphContent data={graphData} type={currentGraph} param={currentParam} />
       )}
     </div>
   );

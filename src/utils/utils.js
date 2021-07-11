@@ -1,9 +1,17 @@
 import moment from "moment";
 import {
+  WEATHER_PARAMETERS,
   WEATHER_TYPE,
   WEATHER_TYPE_LABELS,
   WEATHER_TYPE_LABELS_REVERSE,
 } from "../constants";
+import clear from "../assets/weather/clear_sky.jpeg";
+import fewClouds from "../assets/weather/few clouds.jpeg";
+import mist from "../assets/weather/mist.jpeg";
+import rain from "../assets/weather/rain.jpeg";
+import scattered from "../assets/weather/scattered clouds.jpeg";
+import snow from "../assets/weather/snow.jpeg";
+import thunderstorms from "../assets/weather/thunderstorm.jpeg";
 
 const utils = {
   validateEmail,
@@ -11,6 +19,8 @@ const utils = {
   getGraphFilters,
   getGraphLabels,
   getGraphData,
+  getWeatherImage,
+  getGraphParams
 };
 
 function validateEmail(email) {
@@ -56,11 +66,46 @@ function getGraphLabels(filter, weatherData) {
   return data.map((item) => moment.unix(item).format("DD ddd"));
 }
 
-function getGraphData(filter, weatherData) {
+
+function getGraphParams(weatherData) {
+  if (!weatherData || !weatherData.length)
+    return
+  let filtered = Object.keys(weatherData[0]).filter(
+    (x) => WEATHER_PARAMETERS.indexOf(x) != -1
+  );
+  return filtered;
+}
+
+function getGraphData(filter, weatherData, parameter) {
   let data = weatherData[filter];
-  data = data.map((item) => item.temp);
+  data = data.map((item) => item[parameter]);
   data = filter == "hourly" ? data.slice(0, 24) : data;
-  return data.map((item) => (filter !== "daily" ? item : item.max));
+  console.log('params 3', parameter, data, data.map((item) => (filter !== "daily" ? item : parameter == "temp" ? item.max : item)))
+  return data.map((item) => (filter !== "daily" ? item : parameter == "temp" ? item.max : item));
+}
+
+function getWeatherImage(weather) {
+  switch (weather.description) {
+    case "moderate rain":
+    case "overcast clouds":
+    case "broken clouds":
+    case "light rain":
+    case "moderate rain":
+      return rain;
+    case "shower rain":
+    case "extreme rain":
+    case "thunderstorm with light rain":
+    case "thunderstorm with rain":
+      return thunderstorms;
+    case "clear sky":
+      return clear;
+    case "few clouds":
+      return fewClouds;
+    case "scattered clouds":
+      return scattered;
+    default:
+      return clear;
+  }
 }
 
 export default utils;

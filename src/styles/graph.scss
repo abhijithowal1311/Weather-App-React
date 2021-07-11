@@ -1,8 +1,8 @@
 .graph {
-    background: #eff7f5;
+    background: #fafafa;
     margin: 0.25rem;
     width: 100%;
-    height: 450px;
+    height: 500px;
 
     .graph__container {
         max-height: 375px;
@@ -39,4 +39,16 @@
 
 .graph:hover {
     transform: translateY(-5px); 
+}
+
+@media screen and (max-width:  840px) {
+    .graph {
+        .graph__filter {
+
+            .filters__wrapper {
+                justify-content: center;
+                padding-bottom: 1.25rem;
+            }
+        }
+    }
 }

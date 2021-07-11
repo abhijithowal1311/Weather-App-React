@@ -1,0 +1,108 @@
+.saved__places {
+  max-width: calc(100vw - 400px);
+  align-items: flex-start;
+  // background-color: #EFF7F5;
+  //     box-sizing: border-box;
+  // width: 100%;
+  // padding: 5px;
+  .saved__place__card {
+    // margin: 1.5rem;
+
+    .weather__image {
+      width: 100%;
+      height: 150px !important;
+      border-radius: 8px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    .weather__details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .place__name {
+        font-size: 20px;
+        font-weight: 500;
+        padding: 0.5rem;
+      }
+    }
+  }
+
+  .saved__places__wrapper {
+    display: flex;
+    .saved__place__card_new {
+      flex-grow: 1;
+      margin: 0.5rem;
+      flex-wrap: wrap;
+      max-width: 300px !important;
+      text-align: center;
+      border-radius: 6px;
+      border-top: 6px solid orange;
+
+      .place__name {
+        color: #444;
+        font-size: 22px;
+        font-weight: 500;
+      }
+      .weather__details {
+        display: flex;
+        align-items: center;
+
+        .weather__icon__wrapper {
+          flex-grow: 1;
+          display: flex;
+          border: 1px rgba(19, 19, 19, 0.9);
+          padding: 0.25rem;
+          .card__icon {
+            width: 100px;
+            height: 100px;
+          }
+        }
+
+        .line {
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.2);
+          width: 2px;
+          flex-grow: 1;
+        }
+
+        .weather__temp {
+          font-size: 42px;
+          flex-grow: 1;
+          font-weight: 350;
+          color: #666;
+        }
+      }
+
+      .progress__bar {
+        height: 6px !important;
+        margin-top: 0.5rem;
+      }
+
+      .weather_card_value {
+        font-size: 15px;
+        font-weight: 400;
+      }
+
+      .weather_card_label {
+        font-size: 15px;
+        font-weight: 350;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:990px) {
+    .saved__places {
+        max-width: 100vw;
+        
+        .saved__places__wrapper { 
+            flex-direction: column !important;
+            align-items: center;
+            .saved__place__card_new {
+                width: 100%;
+                max-width:  100% !important;
+            }
+        }
+    }
+}

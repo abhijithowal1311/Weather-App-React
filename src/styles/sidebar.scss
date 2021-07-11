@@ -1,5 +1,5 @@
 .sidebar {
-    height: 100vh !important;
+    height: 100 !important;
     // $sidebar-bg-color: #6579F7;
     $sidebar-bg-color: #6579f7; /* Old browsers */
     $sidebar-bg-color: -moz-linear-gradient(top,  #6579f7 0%, #207cca 0%, #758bef 100%); /* FF3.6-15 */
@@ -16,16 +16,48 @@
     .pro-sidebar-layout {
         height: 100vh !important;
     }
+
+    .user-option {
+        padding: 0.75rem 1.25rem;
+        cursor: pointer;
+        color: #6579f7;
+        display: flex;
+        text-align: center;
+        margin-left: auto;
+        display: none;
+
+        .user__icon {
+            width: 25px;
+            height: 25px;
+            margin: 0rem 1rem;
+        }
+    }
 }
 
 @media screen and (max-width: 768px ){
     .sidebar {
+        display: flex;
         height: fit-content !important;
         .menu__icon {
             display: block !important;
             width: 40px;
             height: 40px;
             cursor: pointer;
+        }
+
+        .user-option {
+            padding: 0.75rem 1.25rem;
+            cursor: pointer;
+            color: #6579f7;
+            display: flex;
+            text-align: center;
+            margin-left: auto;
+    
+            .user__icon {
+                width: 25px;
+                height: 25px;
+                margin: 0rem 1rem;
+            }
         }
     }
 }

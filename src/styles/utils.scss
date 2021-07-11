@@ -14,7 +14,9 @@
 }
 
 .page {
-    margin: 1.25rem;
+    padding: 1.25rem;
+
+  background: #f2f5f6;
 }
 
 .interactive {
@@ -28,4 +30,10 @@
 
 .font-size-20 {
     font-size: 20px;
+}
+
+@media screen and (max-width: 840px) {
+    .page {
+        padding: 0.5rem
+    }
 }

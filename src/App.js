@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <Sidebar />
+      <Sidebar user={state.user}/>
       <MainRouter />
     </div>
   );
