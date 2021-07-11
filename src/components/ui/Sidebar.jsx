@@ -40,7 +40,7 @@ export default function Sidebar() {
           <MenuItem><Link to="/">Dashboard</Link></MenuItem>
           <MenuItem><Link to="/settings">Settings</Link></MenuItem>
         </Menu>
-        { state.weatherData && state.place && <WeatherCard weather={state.weatherData} unitText={unitText} place={state.place}/> }
+        { state.locationWeatherData && state.place && <WeatherCard weather={state.locationWeatherData} unitText={unitText} place={state.defaultPlace}/> }
       </ProSidebar>
       <img src={menuIcon} alt="menu" className="menu__icon" onClick={toggle} />
     </div>

@@ -12,5 +12,31 @@
         display: flex;
         justify-content: space-between;
         padding: 0.5rem 1.5rem;
+
+        .filters__wrapper {
+            display: flex;
+
+            .filters__item {
+                padding: 0rem 0.75rem;
+                margin: 0.75rem 0.25rem;
+                font-size: 18px; 
+                color: #777;
+                cursor: pointer;
+            }
+
+            .active {
+                color: #6579f7;
+                font-weight: 700;
+            }
+
+            .filters__item:hover {
+                transform: translateY(-2px);
+            }
+
+        }
     }
+}
+
+.graph:hover {
+    transform: translateY(-5px); 
 }

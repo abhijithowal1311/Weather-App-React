@@ -2,6 +2,8 @@ import { Button, FormFeedback } from "reactstrap";
 import React, { useEffect, useState } from "react";
 import { Form, FormGroup, Input, Label } from "reactstrap";
 import utils from "../../utils/utils";
+import Autosuggest from "react-autosuggest";
+import AutoSuggestTest from "../utils/AutoSuggestInput";
 
 export default function UserInfoForm({savedData}) {
   const [email, setemail] = useState("");
@@ -54,8 +56,8 @@ export default function UserInfoForm({savedData}) {
       </FormGroup>
       <FormGroup>
         <Label>Location</Label>
-        <Input type="text" value={location} onChange={handleLocation} />
-        {/* <AutoSuggest /> */}
+        {/* <Input type="text" value={location} onChange={handleLocation} /> */}
+        <AutoSuggestTest setLocationName={setlocation} locationName={location} type="settings"/>
       </FormGroup>
       <Button color="primary" className="text-white">
         Save

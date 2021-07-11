@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { WeatherContextProvider } from "./context";
 import { BrowserRouter } from "react-router-dom";
 import "./App.scss";
+import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.render(
   <React.StrictMode>

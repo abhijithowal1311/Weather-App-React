@@ -35,6 +35,10 @@ function App() {
     addUserData(dispatch)
   }, []);
 
+  useEffect(() => {
+    state.locatonBlocked && weatherUtils.addDefaultWeatherInfo(dispatch)
+  }, [state.locatonBlocked])
+
   return (
     <div className="App">
       <Sidebar />

@@ -1,10 +1,11 @@
 $theme-colors: (
   "primary": #6579f7,
   "danger": #ff4136,
-  "primaryNew": #2e3e50
+  "primaryNew": #2e3e50,
+  "info": #ffd16d
 );
 
-
+$primary: #6579f7;
 .text-white {
 color: white !important;
 }

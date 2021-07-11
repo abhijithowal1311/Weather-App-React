@@ -10,7 +10,11 @@ import useLocationName from "../../hooks/useLocationName";
 import locationUtils from "../../utils/locationUtils";
 import { debounce } from "lodash";
 
-export default function AutoSuggestTest() {
+export default function AutoSuggestTest({
+  type = "dashboard",
+  setLocationName,
+  locationName,
+}) {
   const [value, setValue] = useState("");
   const [state, dispatch] = useContext(WeatherContext);
   const [suggestions, setSuggestions] = useState([]);
@@ -32,18 +36,19 @@ export default function AutoSuggestTest() {
 
   useEffect(() => {
     if (weatherInfo && searchEnable) {
-      weatherUtils.addWeatherInfoToStore(weatherInfo, dispatch);
+      weatherUtils.addWeatherInfoToStore(weatherInfo, dispatch, "search");
       setSearchEnable(false);
     }
 
     if (locationDetails && searchEnable) {
-      locationUtils.fetchAndAddPlaceName(locationDetails, dispatch);
+      locationUtils.fetchAndAddPlaceName(locationDetails, dispatch, "search");
     }
   }, [weatherInfo, searchEnable, locationDetails]);
 
   function searchWeather() {
     setSearchEnable(true);
   }
+
   return (
     <div className="d-flex">
       <Autosuggest
@@ -59,6 +64,7 @@ export default function AutoSuggestTest() {
         }
         getSuggestionValue={(suggestion) => {
           setlocation(suggestion);
+          type == "settings" && setLocationName(suggestion.formattedAddress);
           return suggestion.formattedAddress;
         }}
         renderSuggestion={(suggestion) => {
@@ -71,17 +77,20 @@ export default function AutoSuggestTest() {
           );
         }}
         inputProps={{
-          placeholder: "Search...",
-          value: value,
+          placeholder: type == "dashboard" ? "Search..." : locationName,
+          value: type == "dashboard" ? value : locationName,
           onChange: (_, { newValue, method }) => {
             setValue(newValue);
+            type == "settings" && setLocationName(newValue);
           },
         }}
         highlightFirstSuggestion={true}
       />
-      <span className="auto_suggest_btn_container" onClick={searchWeather}>
-        <img src={searchIcon} className="auto_suggest_search_btn" />
-      </span>
+      {type == "dashboard" && (
+        <span className="auto_suggest_btn_container" onClick={searchWeather}>
+          <img src={searchIcon} className="auto_suggest_search_btn" />
+        </span>
+      )}
     </div>
   );
 }

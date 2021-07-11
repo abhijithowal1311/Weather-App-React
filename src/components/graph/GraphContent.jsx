@@ -1,12 +1,12 @@
 import React from 'react'
 import { Doughnut, Line } from 'react-chartjs-2';
 
-export default function GraphContent() {
-
-    let options =  {labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+export default function GraphContent({data}) {
+    console.log('graph data',data)
+    let options =  {labels: data.labels,
     datasets: [{
         label: "temperature",
-        data: [12, 19, 3, 5, 2, 3],
+        data: data.data,
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -25,9 +25,10 @@ export default function GraphContent() {
         ],
         borderWidth: 1
     }]}
+
     return (
         <div className="d-flex w-100 justify-content-center align-items-center p-5">
-            <Line data={options} className="d-flex w-100 graph__container bg-white"/>
+            { options && <Line data={options} className="d-flex w-100 graph__container bg-white"/> }
         </div>
     )
 }

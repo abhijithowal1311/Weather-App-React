@@ -5,16 +5,16 @@ const locationUtils = {
   fetchAndAddPlaceName,
 };
 
-function fetchAndAddPlaceName(place, dispatch) {
+function fetchAndAddPlaceName(place, dispatch, type) {
   if (place.unauthorized) {
     dispatch({
       type: ACTION_TYPES.API_UNAUTHORIZED,
     });
   }
-  console.log("place found",place)
   dispatch({
     type: ACTION_TYPES.ADD_USER_PLACE,
     payload: place.locality,
+    addType: type,
   });
 }
 

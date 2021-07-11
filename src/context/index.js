@@ -11,14 +11,17 @@ const initialState = {
   },
   weatherData: {},
   savedData: [],
+  locationWeatherData: {},
   currentLocation: {},
   locationEnabled: false,
   locatonBlocked: false,
+  appLoading: true,
   defaultLocation: "Bangalore",
   loading: false,
   error: null,
   appTheme: "light",
   unauthorized: false,
+  defaultPlace: "",
   place: "",
   unitType: "metric"
 };
