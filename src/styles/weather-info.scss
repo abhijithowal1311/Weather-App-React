@@ -4,6 +4,7 @@
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 6px;
     background-color: white;
+    align-items: center;
 
     .weather__temp {
         font-weight: 500;
@@ -15,4 +16,81 @@
         height: 100px;
         width: 100px;
     }
+
+    .weather__details {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+        margin-left: 1.5rem;
+        flex-grow: 1;
+        .weather__details__item {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 1.25rem;
+            .weather__label {
+                color: #666;
+                .weather__icon__small {
+                    margin-right: 0.75rem;
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+
+            .weather__value {
+                color: #222;
+                font-weight: bold;
+            }
+        }
+        
+            .border-bottom {
+                border-bottom: none !important;
+            }
+
+        }
+        .border-right {
+            border-right: 1px solid rgba(0,0,0,0.1) !important;
+        }
+
+        .border-left {
+            border-left: 1px solid rgba(0,0,0,0.1) !important;
+        }
+}
+
+@media screen and (max-width:1220px) {
+    .weather__info {
+        flex-direction: column;
+      
+    
+        .weather__details {
+           width: 100%;
+           margin: 0rem;
+            .weather__details__item {
+                width: 100% !important;
+                padding: 1rem;
+                .weather__label {
+    
+                }
+    
+                .weather__value {
+                }
+            }
+
+            hr {
+                display: none;
+            }
+            .border-bottom {
+                border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+            }
+        }
+        .border-right {
+            border-right: none !important;
+        }
+
+        .border-left {
+            border-left: none !important;
+        }
+    }
+
+       
 }

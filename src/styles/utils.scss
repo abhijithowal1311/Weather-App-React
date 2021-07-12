@@ -1,39 +1,114 @@
 .title {
-    font-size: 18px;
-    font-weight: 650;
+  font-size: 18px;
+  font-weight: 650;
 }
 
 .page__title {
-    font-size: 32px;
-    font-weight: 700;
+  font-size: 26px;
+  font-weight: 700;
 }
 
 .page__title_2 {
-    font-size: 26px;
-    font-weight: 600;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .page {
-    padding: 1.25rem;
+  padding: 1.25rem;
 
   background: #f2f5f6;
 }
 
+.page_dark {
+  padding: 1.25rem;
+
+  background: #060616;
+  color: white !important;
+
+  .text-primaryNew {
+    color: white !important;
+  }
+
+  .card {
+    background: #0d101f;
+  }
+
+  .weather__info {
+    background-color: #0d101f;
+    color: white !important;
+    .weather__details {
+      .weather__details__item {
+        .weather__label {
+          color: white !important;
+        }
+        .weather__value {
+          color: white !important;
+        }
+      }
+    }
+  }
+  .weather__list {
+    background: #0d101f;
+  }
+
+  .graph {
+    background: #0d101f;
+
+    .bg-white {
+      background-color: #0d101f;
+    }
+
+    .graph__container {
+      background: #1b203d;
+    }
+  }
+
+  .saved__places {
+    .saved__places__wrapper {
+      .saved__place__card_new {
+        .place__name {
+          color: white !important;
+        }
+        .weather__details {
+          .weather__temp {
+            color: white !important;
+          }
+        }
+      } 
+    }
+  }
+}
+
 .interactive {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .interactive:hover {
-    transform: translateY(-2px);
-    text-decoration: underline;
+  transform: translateY(-2px);
+  text-decoration: underline;
 }
 
 .font-size-20 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 840px) {
-    .page {
-        padding: 0.5rem
-    }
+  .page {
+    padding: 0.5rem;
+  }
+
+  .page_dark {
+  }
+
+  .page__title {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .page__title_2 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+  }
 }

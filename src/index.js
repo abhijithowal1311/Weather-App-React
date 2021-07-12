@@ -9,6 +9,7 @@ import "./App.scss";
 import 'react-toastify/dist/ReactToastify.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "react-toggle/style.css" 
 
 ReactDOM.render(
   <React.StrictMode>

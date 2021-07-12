@@ -59,7 +59,7 @@ export default function UserInfoForm({savedData}) {
         {/* <Input type="text" value={location} onChange={handleLocation} /> */}
         <AutoSuggestTest setLocationName={setlocation} locationName={location} type="settings"/>
       </FormGroup>
-      <Button color="primary" className="text-white">
+      <Button color="primary" className="text-white w-100 mt-3">
         Save
       </Button>
     </Form>

@@ -30,9 +30,7 @@ export const rootReducer = (state, action) => {
         weatherData: { ...action.payload },
         locationWeatherData: {...action.payload}
       }
-
     case "ADD_USER_PLACE":
-      console.log("checking place",state,action)
       return {
         ...state,
         place: action.payload,

@@ -19,32 +19,33 @@ export default function Home() {
   }
 
   return (
-    <div className="d-flex flex-column page">
-      {/* /TODO: implement later */}
-      { state.savedData && <SavedPlaces savedPlaces={state.savedData}/> }
+    <div className={`d-flex flex-column ${state.appTheme == "dark" ? "page_dark" : "page"}`}>
+      {state.savedData && <SavedPlaces savedPlaces={state.savedData} />}
       <div className="d-flex w-100 justify-content-between">
-        <div className="page__title_2 py-3 text-primaryNew">
+        <div className="page__title py-3 pt-lg-5 text-primaryNew">
           Weather today in {state.place}
         </div>
       </div>
-      { state.weatherData && state.weatherData.current && <WeatherInfo weather={state.weatherData.current} /> }
-      <div className="d-flex w-100 justify-content-between">
-        <div className="page__title_2 py-3 text-primaryNew">
-          {/* {state.place} */}
+      {state.weatherData && state.weatherData.current && (
+        <WeatherInfo weather={state.weatherData.current} />
+      )}
+      <div className="d-flex w-100 justify-content-between align-items-center">
+        <div className="page__title py-3 pt-lg-5 text-primaryNew">
           This Week
           <span className="font-size-20"></span>
         </div>
         <span
-          className="interactive text-primary py-3 px-2"
-          onClick={addtoSavedPlaces}
-        >
-          Save
+          className="interactive font-size-20 text-primary text-bold py-3 px-2"
+          onClick={addtoSavedPlaces}>
+          Save Place
         </span>
       </div>
       {state.weatherData && state.weatherData.daily && (
         <DailyWeatherList dailyWeatherList={state.weatherData.daily} />
       )}
-      <div className="page__title_2 py-4 text-primaryNew">Weather Graph</div>
+      <div className="page__title w-100 py-4 text-primaryNew">
+        Weather Graph
+      </div>
       <WeatherGraph />
       <ToastContainer />
     </div>

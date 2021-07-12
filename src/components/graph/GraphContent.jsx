@@ -40,10 +40,10 @@ export default function GraphContent({data, type, param}) {
 function GetGraphType(type, options) {
     switch(type) {
         case "line":
-            return <Line data={options} className="d-flex w-100 graph__container bg-white"/>
+            return <Line data={options} className="d-flex w-100 graph__container"/>
         case "bar":
-            return <Bar  data={options} className="d-flex w-100 graph__container bg-white"/>
+            return <Bar  data={options} className="d-flex w-100 graph__container"/>
         default:
-            return <Bubble data={options} className="d-flex w-100 graph__container bg-white"/>
+            return <Bubble data={options} className="d-flex w-100 graph__container"/>
     }
 }
