@@ -50,7 +50,7 @@ export default function AutoSuggestTest({
   }
 
   return (
-    <div className="d-flex">
+    <div className="d-flex autosuggest_wrapper">
       <Autosuggest
         suggestions={suggestions}
         onSuggestionsClearRequested={() => setSuggestions([])}

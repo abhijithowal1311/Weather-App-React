@@ -80,7 +80,6 @@ function getGraphData(filter, weatherData, parameter) {
   let data = weatherData[filter];
   data = data.map((item) => item[parameter]);
   data = filter == "hourly" ? data.slice(0, 24) : data;
-  console.log('params 3', parameter, data, data.map((item) => (filter !== "daily" ? item : parameter == "temp" ? item.max : item)))
   return data.map((item) => (filter !== "daily" ? item : parameter == "temp" ? item.max : item));
 }
 

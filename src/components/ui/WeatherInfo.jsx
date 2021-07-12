@@ -26,19 +26,14 @@ export default function WeatherInfo({ weather }) {
             <img src={humidIcon} alt="" className="weather__icon__small" />
             Humidity
           </div>
-          <div className="weather__value">
-            {weather.humidity}%
-          </div>
+          <div className="weather__value">{weather.humidity}%</div>
         </div>
-        {/* <hr /> */}
         <div className="weather__details__item border-bottom">
           <div className="weather__label">
             <img src={pressureIcon} alt="" className="weather__icon__small" />
             Pressure
           </div>
-          <div className="weather__value">
-            {weather.pressure} mbar
-          </div>
+          <div className="weather__value">{weather.pressure} mbar</div>
         </div>
       </div>
       <div className="weather__details border-right">
@@ -51,7 +46,6 @@ export default function WeatherInfo({ weather }) {
             {parseFloat((weather.wind_speed * 18) / 5).toFixed(2)} km/h
           </div>
         </div>
-        {/* <hr /> */}
         <div className="weather__details__item border-bottom">
           <div className="weather__label">
             <img src={windIcon} alt="" className="weather__icon__small" />
@@ -65,21 +59,17 @@ export default function WeatherInfo({ weather }) {
       <div className="weather__details ">
         <div className="weather__details__item border-bottom">
           <div className="weather__label">
-          <img src={dewIcon} alt="" className="weather__icon__small" />
-              Dew
-            </div>
+            <img src={dewIcon} alt="" className="weather__icon__small" />
+            Dew
+          </div>
           <div className="weather__value">{weather.dew_point} °</div>
         </div>
-        {/* <hr /> */}
         <div className="weather__details__item">
           <div className="weather__label">
-          <img src={cloudIcon} alt="" className="weather__icon__small" />
-          
-              Cloud Cover
-            </div>
-          <div className="weather__value">
-            {weather.clouds} %
+            <img src={cloudIcon} alt="" className="weather__icon__small" />
+            Cloud Cover
           </div>
+          <div className="weather__value">{weather.clouds} %</div>
         </div>
       </div>
     </div>

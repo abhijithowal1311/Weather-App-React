@@ -33,7 +33,7 @@ export default function Home() {
       </div>
       {state.weatherData && state.weatherData.current ? (
         <WeatherInfo weather={state.weatherData.current} />
-      ): (
+      ) : (
         <div className="w-100 d-flex justify-content-center">
           <Loader type="ball-beat" active color="#6579f7" />
         </div>

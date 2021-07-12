@@ -20,7 +20,7 @@ function getLatLong(name) {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'prj_live_pk_e758f64a3f833f109986908bfa74afeaccc670f1'
+        'Authorization': process.env.REACT_APP_GEOCODING_KEY
       }
   }
   try {

@@ -12,7 +12,7 @@ import locationUtils from "./utils/locationUtils";
 import addUserData from "./helpers/user";
 import { ACTION_TYPES } from "./context/types";
 import ErrorBoundary from "./utils/ErrorBoundary";
-import {getDataFromCache} from "./helpers/app";
+import {getDataFromCache} from "./helpers/apphelper";
 
 function App() {
   const [state, dispatch] = useContext(WeatherContext);
