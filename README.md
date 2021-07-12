@@ -27,8 +27,14 @@ The application makes use of openweatherAPI, radar.io's AutoComplete API for geo
  ### constants.js
  ```contains the constant variables```<br />
  
- hello world
-     
+ ### How To:
+ 1. Downlaod the code/ clone repo <br/>
+ 2. npm install (The project was built with node v14.10)
+ 3. npm start
+ 
+ ### To run tests:
+ #### npm run test
+ 
      
  
 
