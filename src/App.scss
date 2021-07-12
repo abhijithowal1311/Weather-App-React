@@ -45,6 +45,17 @@
   }
 }
 
+@import 'loaders.css/src/animations/line-scale.scss';
+@import 'loaders.css/src/animations/ball-scale.scss';
+@import 'loaders.css/src/animations/ball-beat.scss';
+ 
+.loader-hidden {
+  display: none;
+}
+.loader-active {
+  display: block;
+}
+
 @import "./styles/variables.scss";
 @import "./styles/utils.scss";
 @import "./styles/header.scss";

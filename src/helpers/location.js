@@ -7,7 +7,7 @@ export default function requestLocationAccess(dispatch) {
     maximumAge: 0,
   };
 
-  return navigator.geolocation.getCurrentPosition(
+  navigator && navigator.geolocation && navigator.geolocation.getCurrentPosition(
     (pos) => onLocationRetrieve(pos, dispatch),
     (error) => onLocationBlocked(error, dispatch),
     options

@@ -16,6 +16,7 @@ export default function MainRouter() {
             payload: theme
         })
     }
+    
     return (
         <div className={`${state.appTheme == "dark" ? "page_dark" : "page"} w-100 d-flex flex-column`}>
             <Header user={state.user} theme={state.appTheme} changeTheme={changeTheme}/>

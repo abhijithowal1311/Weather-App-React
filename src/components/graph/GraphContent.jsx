@@ -3,7 +3,6 @@ import { Doughnut, Line, Bar, Bubble } from 'react-chartjs-2';
 import { WEATHER_PARAMETER_MAPPING } from '../../constants';
 
 export default function GraphContent({data, type, param}) {
-    console.log('graph data',data)
     let options =  {labels: data.labels,
     datasets: [{
         label: WEATHER_PARAMETER_MAPPING[param],
@@ -29,9 +28,6 @@ export default function GraphContent({data, type, param}) {
 
     return (
         <div className="d-flex w-100 justify-content-center align-items-center p-lg-5 p-2 pt-lg-5 pt-4">
-            {
-                
-            }
             { options && GetGraphType(type, options) }
         </div>
     )

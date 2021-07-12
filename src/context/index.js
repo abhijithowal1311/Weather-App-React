@@ -1,9 +1,9 @@
 import React, { useReducer, createContext } from "react";
 import { rootReducer } from "./reducer";
 
-export const WeatherContext = createContext();
+export const WeatherContext = createContext([[],() => {}]);
 
-const initialState = {
+export const initialState = {
   user: {
     name: "",
     email: "",
@@ -23,7 +23,8 @@ const initialState = {
   unauthorized: false,
   defaultPlace: "",
   place: "",
-  unitType: "metric"
+  unitType: "metric",
+  appLoaded: false
 };
 
 export const WeatherContextProvider = (props) => {

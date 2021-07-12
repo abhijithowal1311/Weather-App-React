@@ -11,6 +11,8 @@ import weatherUtils from "./utils/weatherUtilities";
 import locationUtils from "./utils/locationUtils";
 import addUserData from "./helpers/user";
 import { ACTION_TYPES } from "./context/types";
+import ErrorBoundary from "./utils/ErrorBoundary";
+import {getDataFromCache} from "./helpers/app";
 
 function App() {
   const [state, dispatch] = useContext(WeatherContext);
@@ -32,9 +34,15 @@ function App() {
   }, [locationDetails])
 
   useEffect(() => {
-    requestLocationAccess(dispatch);
-    addUserData(dispatch)
+    getDataFromCache(dispatch)
   }, []);
+
+  useEffect(() => {
+    if (state.appLoaded) {
+      requestLocationAccess(dispatch);
+      addUserData(dispatch)
+    }
+  }, [state.appLoaded])
 
   useEffect(() => {
     state.locatonBlocked && weatherUtils.addDefaultWeatherInfo(dispatch)
@@ -50,8 +58,10 @@ function App() {
 
   return (
     <div className="App">
-      <Sidebar user={state.user} changeTheme={changeTheme} theme={state.appTheme}/>
-      <MainRouter />
+      <ErrorBoundary>
+        <Sidebar user={state.user} changeTheme={changeTheme} theme={state.appTheme}/>
+        <MainRouter />
+      </ErrorBoundary>
     </div>
   );
 }

@@ -1,16 +1,19 @@
 import { act } from "react-dom/test-utils";
+import { cacheData } from "../helpers/app";
 
 export const rootReducer = (state, action) => {
+  let newState = {}
   switch (action.type) {
     case "ADD_WEATHER_DATA":
-      console.log("payload test",state, action)
-      return {
+      newState =  {
         ...state,
         weatherData: { ...action.payload },
         locationWeatherData: action.addType != "search" ? {...action.payload} : state.locationWeatherData,
       };
+      cacheData(newState)
+      return newState;
     case "ADD_USER_LOCATION":
-      return {
+      newState =  {
         ...state,
         currentLocation: {
           ...action.payload,
@@ -18,32 +21,41 @@ export const rootReducer = (state, action) => {
           locatonBlocked: false,
         },
       };
+      cacheData(newState)
+      return newState
     case "BLOCK_LOCATION":
-      return {
+      newState =  {
         ...state,
         locationEnabled: false,
         locatonBlocked: true,
       };
+      cacheData(newState)
+      return newState
     case "ADD_DEFAULT_LOCATION":
-      return {
+      newState =  {
         ...state,
         weatherData: { ...action.payload },
         locationWeatherData: {...action.payload}
       }
+      cacheData(newState)
+      return newState
     case "ADD_USER_PLACE":
-      return {
+      newState = {
         ...state,
         place: action.payload,
         defaultPlace: action.addType != "search" ? action.payload : state.defaultPlace
       };
+      cacheData(newState)
+      return newState
     case "ADD_USER_DATA":
-      console.log("we are here 2 action payload", action.payload);
-      return {
+      newState =  {
         ...state,
         user: { ...action.payload },
       };
+      cacheData(newState)
+      return newState
     case "ADD_TO_SAVED_PLACES":
-      return {
+      newState =  {
         ...state,
         savedData: [
           ...state.savedData,
@@ -55,21 +67,42 @@ export const rootReducer = (state, action) => {
           },
         ],
       };
+      cacheData(newState)
+      return newState;
     case "COMPLETE":
-      return {
+      newState =  {
         loading: false,
       };
+      cacheData(newState)
+      return newState
     case "API_UNAUTHORIZED":
-      return {
+      newState =  {
         ...state,
         unauthorized: true,
       };
+      cacheData(newState)
+      return newState
     case "CHANGE_APP_THEME": {
-      return {
+      newState =  {
         ...state,
         appTheme: action.payload,
       };
+      cacheData(newState)
+      return newState
     }
+    case "LOAD_APP_DATA":
+      newState =  {
+        ...action.payload,
+        appLoaded: true
+      }
+      cacheData(newState)
+      return newState
+    case "LOAD_CACHED_DATA":
+      newState =  {
+        ...action.payload,
+        appLoaded: true
+      }
+      return newState
     default:
       throw new Error();
   }
