@@ -63,7 +63,9 @@ function getGraphLabels(filter, weatherData) {
   let data = weatherData[filter];
   data = data.map((item) => item.dt);
   data = filter == "hourly" ? data.slice(0, 24) : data;
-  return data.map((item) => moment.unix(item).format("DD ddd"));
+  const getDate = (item) => moment.unix(item).format("DD ddd")
+  const getHour = (item) => { return moment.unix(item).format("HH")+":00" } 
+  return data.map((item) => filter == "hourly" ? getHour(item) : getDate(item));
 }
 
 
