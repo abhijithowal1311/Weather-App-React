@@ -6,7 +6,9 @@ export default function DailyWeatherCard({ weather = {} }) {
   return (
     <div className="daily__weather__item">
       <div className="daily__weather__description">
-        { weather && weather.weather && weather.weather.length >0 && <div>{weather.weather[0].main}</div> }
+        {weather && weather.weather && weather.weather.length > 0 && (
+          <div>{weather.weather[0].main}</div>
+        )}
       </div>
       <img
         className="daily__weather__icon"

@@ -8,7 +8,7 @@ import cloudIcon from "../../assets/weather/cloud.png";
 
 export default function WeatherInfo({ weather }) {
   return (
-    <div className="weather__info">
+    <div className="weather__info interactive__card">
       {weather && weather.weather && (
         <img
           className="card__icon"

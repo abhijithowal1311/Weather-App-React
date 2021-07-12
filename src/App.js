@@ -57,7 +57,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App" style={{background: state.appTheme == "dark" ? "#060616" : "white"}}>
       <ErrorBoundary>
         <Sidebar user={state.user} changeTheme={changeTheme} theme={state.appTheme}/>
         <MainRouter />

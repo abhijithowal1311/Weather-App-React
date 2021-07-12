@@ -88,6 +88,14 @@
   text-decoration: underline;
 }
 
+.interactive__card {
+  cursor: pointer;
+}
+
+.interactive__card:hover {
+  transform: translateY(-2px);
+}
+
 .font-size-20 {
   font-size: 20px;
 }

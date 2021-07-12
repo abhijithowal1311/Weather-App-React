@@ -30,7 +30,7 @@ function SavedPlacesList({ savedPlaces }) {
         savedPlaces.length > 0 &&
         savedPlaces.map((place) => {
           return (
-            <Card className="saved__place__card_new px-4">
+            <Card className="saved__place__card_new px-4 interactive__card">
               <CardBody>
                 <div className="place__name">{place.place}</div>
                 <div className="weather__details">
